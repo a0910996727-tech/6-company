@@ -32,7 +32,7 @@ Skechers (SKX) stands out for relatively balanced ratios and strong long-run gro
 3. Launch the Streamlit app: streamlit run app.py
    
 ### 6. Product Link / Demo
-This project includes a local interactive demo built with Streamlit in app.py. No public deployment link is included in the current project files.
+This project includes a local interactive demo built with Streamlit in app.py. No public deployment link is included in the current project files.https://github.com/a0910996727-tech/6-company/blob/main/README.md
 
 ### 7. Limitations & Next Steps
 The analysis uses annual accounting data only, so it does not capture quarterly seasonality, short-term shocks, or intra-year strategy changes.
