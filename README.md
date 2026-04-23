@@ -5,37 +5,35 @@
 This project was created for the ACC102 mini assignment and is designed for instructors, classmates, and other readers who want a quick financial comparison of major US sportswear brands. It asks which firms outperform their peers from 2015 to 2024 and whether ROE is mainly driven by profitability, operating efficiency, or financial leverage.
 
 ### 2. Data
-Source: WRDS comp.funda annual financial statement data, extracted in the notebook and exported to full_financial_analysis_2015_2024.xlsx.
-Access date: The original WRDS pull date is not recorded in the notebook; this project file was reviewed on April 22, 2026.
+Source: WRDS Compustat (comp.funda) annual financial statement data, retrieved directly through the Streamlit interface upon user login.
+Access date: Data extraction occurs dynamically at runtime; the project structure and code were finalized on April 22, 2026.
 Companies covered: Nike (NKE), Deckers (DECK), Columbia Sportswear (COLM), Dick's Sporting Goods (DKS), Wolverine World Wide (WWW), and Skechers (SKX).
-Time period: 2015-2024.
-Key fields: Revenue, COGS, Net_Income, Total_Equity, Total_Assets, Gross_Margin, Net_Margin, ROE, Asset_Turnover, Leverage, Revenue_Growth, and NetIncome_Growth.
+Time period: 2015–2024 (10 full fiscal years).
+Key fields: Revenue, COGS, Net Income, Total Equity, Total Assets, Gross Margin, Net Margin, ROE, Asset Turnover, Financial Leverage, Revenue Growth, and Net Income Growth.
+
 
 ### 3. Methods
-Pulled annual company financial data from WRDS for six selected sportswear companies.
-Cleaned the data by removing duplicates, sorting by ticker and year, and filtering out invalid values.
-Renamed raw variables into readable financial fields and calculated core ratios including gross margin, net margin, ROE, asset turnover, and leverage.
-Applied DuPont analysis using ROE = Net Margin x Asset Turnover x Leverage.
-Calculated year-over-year revenue and net income growth.
-Exported the final analysis table to Excel and built an interactive Streamlit dashboard with line charts, bar charts, and a correlation heatmap.
+Pulled annual corporate financial data directly from WRDS for six selected sportswear firms using valid user credentials.
+Cleaned the dataset by removing duplicates, sorting observations by ticker and fiscal year, and excluding records with non-positive or missing values for core financial items.
+Renamed raw accounting variables into interpretable financial metrics and computed key ratios including gross margin, net margin, ROE, asset turnover, and financial leverage.
+Conducted DuPont analysis by decomposing ROE into the product of net margin, asset turnover, and financial leverage.
+Calculated year-over-year growth rates for revenue and net income within each company.
+Developed an interactive Streamlit dashboard with multi-perspective visualizations including line charts, bar charts, boxplots, scatter plots, and a correlation heatmap. The dashboard supports automated Excel export of cleaned and analyzed data for further review.
 
 ### 4. Key Findings
-Nike (NKE) remains the largest company by revenue in 2024 at about USD 46.3 billion, but its 2024 revenue growth turned negative and its leverage stayed more conservative than some peers.
-Deckers (DECK) is the strongest overall profitability leader in the latest year, with the highest 2024 gross margin, ROE, and revenue growth among the six companies.
-Dick's Sporting Goods (DKS) shows strong operating efficiency and consistently high asset turnover, making it one of the most efficient firms in the sample.
-Wolverine World Wide (WWW) carries the highest leverage, which can support ROE but also suggests greater financial risk and more volatile performance.
-Skechers (SKX) stands out for relatively balanced ratios and strong long-run growth, while Columbia (COLM) shows steadier but less aggressive performance.
+Nike (NKE) maintained the largest revenue scale in 2024 at approximately USD 46.3 billion, but experienced negative revenue growth in the latest year while maintaining a relatively conservative capital structure compared to some peers.
+Deckers (DECK) led the group in overall profitability in 2024, achieving the highest gross margin, ROE, and revenue growth among the six companies.
+Dick's Sporting Goods (DKS) demonstrated strong operational efficiency through consistently high asset turnover, positioning it as one of the most operationally efficient firms in the sample.
+Wolverine World Wide (WWW) employed the highest financial leverage, which may boost ROE during favorable periods but also introduces higher financial risk and greater performance volatility.
+Skechers (SKX) exhibited well-balanced financial ratios and solid long-term growth momentum, whereas Columbia (COLM) delivered stable but comparatively modest performance across most metrics.
 
 ### 5. How to Run
 1. Install dependencies: pip install -r requirements.txt
 2. Make sure full_financial_analysis_2015_2024.xlsx is in the same folder as app.py.
 3. Launch the Streamlit app: streamlit run app.py
    
-### 6. Product Link / Demo
-This project includes a local interactive demo built with Streamlit in app.py. No public deployment link is included in the current project files.https://github.com/a0910996727-tech/6-company/blob/main/README.md
-
-### 7. Limitations & Next Steps
-The analysis uses annual accounting data only, so it does not capture quarterly seasonality, short-term shocks, or intra-year strategy changes.
-The source notebook does not record the original WRDS extraction date, which weakens the metadata quality of the dataset documentation.
-The current dashboard relies on a local Excel file rather than an automated live data pipeline.
-A useful next step would be adding more brands, quarterly data, and stronger company-level narrative interpretation for each chart.
+### 6. Limitations & Next Steps
+The analysis relies solely on annual accounting data, therefore it does not reflect quarterly seasonality, short-term market shocks, or within-year strategic adjustments.
+Data access requires manual user input of WRDS credentials at runtime, as the dashboard does not support automated or persistent authentication.
+The current version pulls data only at execution time and does not store a fixed historical snapshot locally, which limits reproducibility under unchanged data environments.
+Future improvements could include expanding the sample to include more sportswear and apparel brands, incorporating quarterly financial data, adding peer group benchmarking, and enhancing chart explanations with company-specific strategic context.
